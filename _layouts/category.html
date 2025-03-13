@@ -103,7 +103,7 @@ layout: default
 
 <div class="posts-container">
     <div class="posts-grid">
-        {% assign filtered_posts = site.posts | where: "categories", page.category %}
+        {% assign filtered_posts = site.posts | where_exp: "post", "post.categories contains page.category" %}
         {% for post in filtered_posts %}
         <article class="post-card">
             <h2 class="post-title">
