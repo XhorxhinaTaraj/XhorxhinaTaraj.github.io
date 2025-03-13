@@ -90,7 +90,51 @@ layout: default
     .reading-time {
         display: inline-block;
     }
+    /* Search container styles */
+.search-container {
+    max-width: 600px;
+    margin: -1.5rem auto 3rem;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.search-box {
+    display: flex;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.search-box input {
+    flex-grow: 1;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-box button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: #0055aa;
+}
+
+/* Hide posts that don't match search */
+.hide-post {
+    display: none;
+}
+
 </style>
+
 
 <section class="category-banner">
     {% if page.category == "data-ai" %}
@@ -100,6 +144,16 @@ layout: default
     {% endif %}
     <h1 class="category-title">{{ page.title }}</h1>
 </section>
+
+<!-- Add this search section below the banner -->
+<div class="search-container">
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search in {{ page.title }}...">
+        <button id="searchButton">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+</div>
 
 <div class="posts-container">
     <div class="posts-grid">
@@ -124,3 +178,44 @@ layout: default
         {% endfor %}
     </div>
 </div>
+<!-- Add this before the closing </div> of posts-container -->
+</div>
+
+<!-- Add JavaScript for search functionality -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const postCards = document.querySelectorAll('.post-card');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            postCards.forEach(card => {
+                const title = card.querySelector('.post-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.post-excerpt').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                    card.classList.remove('hide-post');
+                } else {
+                    card.classList.add('hide-post');
+                }
+            });
+        }
+        
+        searchButton.addEventListener('click', performSearch);
+        
+        searchInput.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+            
+            // If search input is empty, show all posts
+            if (searchInput.value === '') {
+                postCards.forEach(card => {
+                    card.classList.remove('hide-post');
+                });
+            }
+        });
+    });
+</script>
