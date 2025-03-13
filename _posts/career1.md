@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Diffusion Models for Video Generation"
+categories: career
+date: 2024-04-12
+reading_time: 28
+author: Joy
+excerpt: "Diffusion models have demonstrated strong results on image synthesis in past years. Now the research community has started working on a harder task—using it for video generation."
+---
+
+## Career Interview
+
+Diffusion models have demonstrated strong results on image synthesis in past years. Now the research community has started working on a harder task—using it for video generation. The task itself is a superset of image generation, with additional complexity of temporal consistency.
+
+### Key Challenges in Video Generation
+
+- **Temporal Consistency**: Ensuring frames maintain logical continuity
+- **Computational Complexity**: Processing sequential frames requires more resources
+- **Quality-Speed Tradeoff**: High-quality generation often comes at the cost of speed
+
+(Continue with more detailed content about diffusion models for video)

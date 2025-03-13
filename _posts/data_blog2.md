@@ -1,0 +1,22 @@
+---
+layout: post
+title: "Extrinsic Hallucinations in LLMs"
+categories: data-ai
+date: 2024-07-07
+reading_time: 30
+author: Joy
+excerpt: "Hallucination in large language models usually refers to the model generating unfaithful, fabricated, inconsistent, or nonsensical content."
+---
+
+## Understanding LLM Hallucinations
+
+Hallucination in large language models usually refers to the model generating unfaithful, fabricated, inconsistent, or nonsensical content. As a term, hallucination has been somewhat generalized to cases where models make things up.
+
+### Types of Hallucinations
+
+There are primarily two types of hallucinations in LLMs:
+
+1. **Intrinsic hallucinations**: Contradictions with the input context
+2. **Extrinsic hallucinations**: Contradictions with facts in the external world
+
+(Continue with more detailed content about hallucinations)
