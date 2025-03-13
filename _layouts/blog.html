@@ -1,0 +1,154 @@
+---
+layout: default
+---
+
+<style>
+    /* Hero banner styles */
+    .blog-banner {
+        position: relative;
+        height: 40vh;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+        margin-bottom: 4rem;
+    }
+    
+    .blog-banner-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        filter: brightness(0.7);
+    }
+    
+    .blog-banner-title {
+        font-size: 3rem;
+        font-weight: 700;
+        z-index: 1;
+    }
+    
+    /* Category section styles */
+    .featured-categories {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+    
+    .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        font-weight: 600;
+    }
+    
+    .categories-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+    
+    .category-card {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background-color: white;
+    }
+    
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    }
+    
+    .category-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .category-content {
+        padding: 1.5rem;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+    
+    .category-description {
+        margin-bottom: 1.5rem;
+        color: #555;
+        line-height: 1.6;
+    }
+    
+    .category-button {
+        display: inline-block;
+        background-color: #0066cc;
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    }
+    
+    .category-button:hover {
+        background-color: #0055aa;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .blog-banner-title {
+            font-size: 2.5rem;
+        }
+        
+        .category-card {
+            flex: 100%;
+        }
+    }
+</style>
+
+<!-- Blog banner -->
+<section class="blog-banner">
+    <img src="/assets/images/blog-banner.jpg" alt="Blog Banner" class="blog-banner-image">
+    <h1 class="blog-banner-title">Blog</h1>
+</section>
+
+<!-- Featured Categories Section -->
+<section class="featured-categories">
+    <h2 class="section-title">Featured Categories</h2>
+    
+    <div class="categories-container">
+        <!-- Data & AI Category -->
+        <div class="category-card">
+            <img src="/assets/images/data-ai-category.jpg" alt="Data & AI" class="category-image">
+            <div class="category-content">
+                <h3 class="category-title">Data & AI</h3>
+                <p class="category-description">Explore the latest trends, technologies, and insights in artificial intelligence, machine learning, and data science. From practical tutorials to thought-provoking analyses.</p>
+                <a href="/category/data-ai" class="category-button">Explore</a>
+            </div>
+        </div>
+        
+        <!-- Career Category -->
+        <div class="category-card">
+            <img src="/assets/images/career-category.jpg" alt="Career Growth" class="category-image">
+            <div class="category-content">
+                <h3 class="category-title">Career Growth</h3>
+                <p class="category-description">Navigate your professional journey in tech with career advice, skill development strategies, and industry insights to help you advance and thrive in the rapidly evolving tech landscape.</p>
+                <a href="/category/career" class="category-button">Explore</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<style>
+    .category-header {
+        text-align: center;
+        padding: 4rem 1rem;
+        background-color: #f5f7fa;
+    }
+    
+    .category-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .posts-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+    
+    .post-item {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .post-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .post-title a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .post-title a:hover {
+        color: #0066cc;
+    }
+    
+    .post-meta {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+    }
+    
+    .post-excerpt {
+        line-height: 1.6;
+    }
+</style>
+
+<header class="category-header">
+    <h1 class="category-title">{{ page.title }}</h1>
+    <p>Browse all articles related to {{ page.title }}</p>
+</header>
+
+<section class="posts-container">
+    {% assign filtered_posts = site.posts | where: "categories", page.category %}
+    {% for post in filtered_posts %}
+    <article class="post-item">
+        <h2 class="post-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <div class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</div>
+        <div class="post-excerpt">
+            {{ post.excerpt }}
+        </div>
+    </article>
+    {% else %}
+    <p>No posts in this category yet. Check back soon!</p>
+    {% endfor %}
+</section>
